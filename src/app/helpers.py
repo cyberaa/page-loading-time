@@ -5,7 +5,6 @@ Application helpers
 
 import re
 import sys
-import json
 import urllib.request
 from time import time
 
