@@ -15,8 +15,8 @@ class TestHelpers(unittest.TestCase):
         url = 'http://example.com'
         data = app.helpers.gather_information(url)
 
-        self.assertTrue('loading_time' in data)
-        self.assertTrue('page_size' in data)
+        self.assertTrue('timeToLastByte' in data)
+        self.assertTrue('bodySize' in data)
 
-        self.assertTrue(isinstance(data['loading_time'], float))
-        self.assertTrue(data['loading_time'] > 0)
+        self.assertTrue(isinstance(data['timeToLastByte'], int))
+        self.assertTrue(data['timeToLastByte'] > 0)

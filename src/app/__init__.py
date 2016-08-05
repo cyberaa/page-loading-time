@@ -18,6 +18,6 @@ def index():
         data.append(gather_information(url))
 
     return dict(
-        rank_load=sorted(data, key=lambda x: x['loading_time']),
-        rank_size=sorted(data, key=lambda x: x['page_size'])
+        rank_load=sorted(data, key=lambda x: x['timeToLastByte']),
+        rank_size=sorted(data, key=lambda x: x['bodySize'])
     )

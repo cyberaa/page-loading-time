@@ -10,7 +10,7 @@
 			% for result in rank_load:
 			<tr>
 				<td><a href="{{ result['url'] }}">{{ result['url'] }}</a></td>
-				<td>{{ round(result['loading_time'] * 1000, 2) }} ms</td>
+				<td>{{ result['timeToLastByte'] }} ms</td>
 			</tr>
 			% end
 		</table>
@@ -24,7 +24,7 @@
 			% for result in rank_size:
 			<tr>
 				<td><a href="{{ result['url'] }}">{{ result['url'] }}</a></td>
-				<td>{{ round(result['page_size'] / 1024, 2) }} kB</td>
+				<td>{{ round(result['bodySize'] / 1024, 2) }} kB</td>
 			</tr>
 			% end
 		</table>

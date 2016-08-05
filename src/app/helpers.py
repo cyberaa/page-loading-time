@@ -5,8 +5,7 @@ Application helpers
 
 import re
 import sys
-import urllib.request
-from time import time
+from phantomas import Phantomas
 
 
 def gather_information(url):
@@ -15,18 +14,12 @@ def gather_information(url):
     if not re.search(r'^https?://', url):
         url = 'http://' + url
 
-    data = {'url' : url}
+    results = Phantomas(
+        url=url,
+        modules=['requestsStats']
+    ).run()
 
-    request = urllib.request.Request(url, headers={'Accept-Encoding': 'gzip/deflate'})
-    stream = urllib.request.urlopen(request)
-
-    data['start_time'] = time()
-    output = stream.read()
-    info = stream.info()
-    data['end_time'] = time()
-    stream.close()
-
-    data['loading_time'] = data['end_time'] - data['start_time']
-    data['page_size'] = sys.getsizeof(output)
+    data = results.get_metrics()
+    data['url'] = url
 
     return data
