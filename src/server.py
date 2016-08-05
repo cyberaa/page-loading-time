@@ -22,8 +22,8 @@ if __name__ == '__main__':
         app.URLS = ['www.example.com']
 
     args = {
-        'host': os.environ.get('HOST', '0.0.0.0'),
-        'port': os.environ.get('HOST', 8080),
-        'debug': os.environ.get('HOST', True),
+        'host': os.environ.get('APP_HOST', '0.0.0.0'),
+        'port': os.environ.get('APP_PORT', 8080),
+        'debug': os.environ.get('APP_DEBUG', False),
     }
     app.run(**args)
