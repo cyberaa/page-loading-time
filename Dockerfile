@@ -1,6 +1,8 @@
 FROM python
 MAINTAINER Corentin Gitton <corentin.gitton@gmail.com>
 
+ENV APP_HOST='0.0.0.0'
+
 # NodeJS from https://github.com/nodejs/docker-node/blob/master/6.3/Dockerfile
 RUN set -ex \
 	&& for key in \
