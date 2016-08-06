@@ -1,8 +1,11 @@
 FROM python:alpine
 MAINTAINER Corentin Gitton <corentin.gitton@gmail.com>
 
-RUN pip install -r requirements.txt
+COPY src /app
 
-COPY app.py /app.py
+RUN apk add --no-cache ca-certificates && \
+	pip install --no-cache-dir -r /app/requirements.txt
 
-CMD ["python", "/app.py"]
+EXPOSE 8080
+
+CMD ["python", "/app/server.py"]
