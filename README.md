@@ -4,12 +4,17 @@ This is an exemple of a web application that take a list of urls and rank them b
 
 ### Usage
 
-Set the file `urls.json` to set the list of urls to load.
+Set the file `urls.json` with the list of urls to load. (The `urls-example.json` file is here to help)
 
 Then just start the server:
 ```bash
 python server.py
 ```
+
+The following environement variable are available:
+- APP_HOST (default=localhost)
+- APP_PORT (default=8080)
+- APP_DEBUG (defaul=False)
 
 ### Docker image
 
